@@ -33,7 +33,14 @@
 .columnSection .item {
     display: grid;
     grid-template-columns: 85px 1fr;
-    gap: 10px;
+}
+
+.columnSection .item > :first-child {
+  grid-column: 1;
+}
+
+.columnSection .item > :not(:first-child) {
+  grid-column: 2;
 }
 
 .label,
