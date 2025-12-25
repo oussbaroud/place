@@ -16,9 +16,10 @@ import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import { useGlobalContext } from '@/core/functions/hooks/context/functions';
 import { dateToDateString, dateToTime, isDatesSameDay } from '@/core/functions/data/date/functions';
-import { onMount } from './actions';
+import { onMount } from './functions';
 
 /// Styles
+import pendingStyles from '@/core/styles/pending.module.css';
 import styles from './option.module.css';
 
 /// Components
@@ -46,7 +47,7 @@ export default function Option () {
     // Use effects
     useEffect( () => {
         onMount( { lang, id, setState, setIsPending } );
-    } );
+    }, [] );
 
     // Return
     return (
@@ -56,7 +57,7 @@ export default function Option () {
             state.errors.length === 0 ? (
                 <>
                     <div
-                        className={ styles.titleWrapper }
+                        className={ `${ styles.titleWrapper } ${ isPending && pendingStyles.skeleton }` }
                     >
                         <div
                             className={ styles.titleContainer }
@@ -67,7 +68,7 @@ export default function Option () {
                         </div>
                     </div>
                     <div
-                        className={ styles.imagesWrapper }
+                        className={ `${ styles.imagesWrapper } ${ isPending && pendingStyles.skeleton }` }
                     >
                         <div
                             className={ styles.imagesContainer }

@@ -3,7 +3,6 @@
 import { ImagesProps } from './types';
 
 /// Styles
-import pendingStyles from '@/core/styles/pending.module.css';
 import styles from './images.module.css';
 
 // Component
@@ -11,7 +10,7 @@ export default function Images ( props: ImagesProps ) {
     // Return
     return (
         <div
-            className={ `${ styles.wrapper } ${ props.isPending && pendingStyles.skeleton }` }
+            className={ styles.wrapper }
         >
             <div
                 className={ styles.container }

@@ -1,4 +1,4 @@
-'use server'
+'use client'
 
 // Import
 /// Dictionary
@@ -28,5 +28,6 @@ export async function onMount ( { lang, id, setState, setIsPending }: OnMountPar
             errors: response.errors.errors
         } )
     );
+
     setIsPending( () => false );
 };

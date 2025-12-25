@@ -11,7 +11,7 @@ import { iState } from './variables';
 import { useEffect, useId, useRef, useState } from 'react';
 import { addClickEventListener } from '@/core/functions/functions';
 import { useGlobalContext } from '@/core/functions/hooks/context/functions';
-import { onMount } from './actions';
+import { onMount } from './functions';
 
 /// Styles
 import styles from './explore.module.css';

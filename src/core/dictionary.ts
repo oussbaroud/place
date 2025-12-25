@@ -13,6 +13,9 @@ export const functionsErrors = {
 export const englishMetaData = {
     title: 'The best places and activities in Algeria',
     description: 'Discover the best places and activities in Algeria',
+    icons: {
+        icon: '/icon.png',
+    }
 };
 
 export const englishDate = {
@@ -73,6 +76,9 @@ const englishDictionary = {
 export const frenchMetaData = {
     title: 'Meilleurs endroits et activités en Algérie',
     description: 'Découvrez les meilleurs endroits et activités en Algérie',
+    icons: {
+        icon: '/icon.png',
+    }
 };
 
 export const frenchDate = {
@@ -132,7 +138,10 @@ const frenchDictionary = {
 /// Arabic
 export const arabicMetaData = {
     title: 'أفضل الأماكن و الأنشطة في الجزائر',
-    description: 'إكتشف أفضل الأماكن و الأنشطة في الجزائر'
+    description: 'إكتشف أفضل الأماكن و الأنشطة في الجزائر',
+    icons: {
+        icon: '/icon.png',
+    }
 };
 
 export const arabicDate = {

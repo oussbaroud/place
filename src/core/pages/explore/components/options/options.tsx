@@ -27,18 +27,18 @@ export default function Options () {
     // Return
     return (
         <div className={ styles.wrapper }>{
-            state.options.length === 0 ? (
-                <div
-                    className={ styles.empty }
-                >
-                    <h2>{ dictionary.messages.noResultsFound }</h2>
-                </div>
-            ) :
             state.errors.length > 0 ? (
                 <div
                     className={ styles.error }
                 >
                     <h2>{ state.errors[ 0 ] }</h2>
+                </div>
+            ) :
+            !isPending && state.options.length === 0 ? (
+                <div
+                    className={ styles.empty }
+                >
+                    <h2>{ dictionary.messages.noResultsFound }</h2>
                 </div>
             ) : (
                 <>{
