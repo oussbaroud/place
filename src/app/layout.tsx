@@ -1,6 +1,6 @@
 // Import
 /// Dictionay
-import { getMetaData } from '@/dictionary';
+import { getMetaData } from '@/core/dictionary';
 
 /// Types
 import type { Metadata } from 'next';
@@ -10,17 +10,17 @@ import { ReactNode } from 'react';
 import { Cairo } from 'next/font/google';
 
 /// Functions
-import { getDirection } from '@/functions/functions';
+import { getDirection } from '@/core/functions/functions';
 
 /// Actions
-import { getLang } from '@/actions/language/actions';
+import { getLang } from '@/core/actions/language/actions';
 
 /// Styles
 import './globals.css';
 
 /// Components
-import Provider from '@/provider/provider';
-import Header from '@/components/layout/header/header';
+import Provider from '@/core/provider/provider';
+import Header from '@/core/components/layout/header/header';
 
 // Fonts
 const cairo = Cairo( {

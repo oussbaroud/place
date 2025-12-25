@@ -1,6 +1,6 @@
 // Import
 /// Components
-import Option from '@/pages/option/option';
+import Option from '@/core/pages/option/option';
 
 // Page
 export default function Page () {

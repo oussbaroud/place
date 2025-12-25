@@ -1,0 +1,72 @@
+// Import
+/// Dictionary
+import { getEmailDictionary } from './dictionary';
+
+/// Types / Safeguards
+import { EmailInputProps } from './types';
+
+/// Functions
+import { forwardRef, useId, useRef } from 'react';
+import { onChange } from './functions';
+
+/// Styles
+import styles from '@/core/components/inputs/inputs.module.css';
+
+/// Components
+import Messages from '@/core/components/outputs/messages/messages';
+
+// Component
+export default forwardRef< HTMLDivElement, EmailInputProps >( function EmailInput( props, ref ) {
+    // Dictionary
+    const dictionary = getEmailDictionary( props );
+
+    // Props
+    /// Container
+    const inputHasErrors = !props.isErrorsHidden && props.state.errors.length > 0;
+    const inputContainerClassName = `${ styles.container } ${ inputHasErrors && styles.containerHasError }`;
+
+    /// Label
+    const labelClassName = props.isLabelHidden
+    ? styles.hiddenLabel
+    : styles.inputOptionLabelNotHidden;
+
+    /// Input
+    const inputId = useId();
+
+    // Return
+    return (
+        <div
+            className={ styles.wrapper }
+            id={ props.id }
+        >
+            <div
+                ref={ ref }
+                className={ inputContainerClassName }
+            >
+                <label
+                    className={ styles.field }
+                    htmlFor={ inputId }
+                >
+                    <span
+                        className={ labelClassName }
+                    >{ dictionary.input.label }</span>
+                    <input
+                        className={ styles.textFieldInput }
+                        id={ inputId }
+                        name={ 'email' }
+                        type={ 'email' }
+                        placeholder={ dictionary.input.placeholder }
+                        value={ props.state.value }
+                        onChange={ ( event ) => onChange( { props, event } ) }
+                        autoComplete={ 'off' }
+                        autoCorrect={ 'off' }
+                    />
+                </label>
+            </div>
+            <Messages
+                errors={ props.state.errors }
+                isErrorsHidden={ props.isErrorsHidden }
+            />
+        </div>
+    );
+} );

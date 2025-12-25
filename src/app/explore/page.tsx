@@ -1,6 +1,6 @@
 // Import
 /// Components
-import Explore from '@/pages/explore/explore';
+import Explore from '@/core/pages/explore/explore';
 
 // Page
 export default function Page () {

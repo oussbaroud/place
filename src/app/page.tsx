@@ -1,6 +1,6 @@
 // Import
 /// Components
-import Landing from '@/pages/landing/landing';
+import Landing from '@/core/pages/landing/landing';
 
 // Page
 export default function Home () {
