@@ -1,0 +1,60 @@
+.container {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.links,
+.aRR {
+  padding: 20px 20%;
+}
+
+.links {
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+
+  background: #000;
+}
+
+.link {
+  color: #fff;
+  font-size: 16px;
+}
+
+.aRR {
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: #000;
+
+  color: #fff;
+  text-align: center;
+}
+
+.aRR span {
+  font-size: 16px;
+}
+
+@media ( max-width: 1440px ) {
+  .links,
+  .aRR {
+    padding-right: 10%;
+    padding-left: 10%;
+  }
+}
+
+@media ( max-width: 768px ) {
+  .links,
+  .aRR {
+    padding-right: 5%;
+    padding-left: 5%;
+  }
+}

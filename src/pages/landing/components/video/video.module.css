@@ -1,0 +1,21 @@
+.video {
+    z-index: -1;
+    position: absolute;
+
+    width: 100vw;
+    height: calc( 100vh - 90px );
+
+    object-fit: cover;
+    object-position: center;
+
+    opacity: 1;
+    transition: opacity 0.2s ease;
+}
+
+.fadeOut {
+  opacity: 0;
+}
+
+.fadeIn {
+  opacity: 1;
+}

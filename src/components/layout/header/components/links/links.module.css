@@ -1,0 +1,130 @@
+/*
+
+Container
+
+*/
+
+.type1,
+.type2 {
+    background: inherit;
+}
+
+.type1 {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 10px;
+}
+
+.type2 {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+/*
+
+Links
+
+*/
+
+.type1 > * {
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 0 20px;
+    border-radius: 10px;
+    background: rgba( 255, 255, 255, 0.1 ) !important;
+
+    text-align: center;
+}
+
+.type1 > *:hover {
+    background: rgba( 255, 255, 255, 0.2 ) !important;
+}
+
+.type2 > * {
+    width: 100%;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    padding: 15px 20px;
+    border-radius: 10px;
+    background: transparent;
+
+    text-align: start;
+}
+
+.type2 .active,
+.type2 > *:hover {
+    background: rgba( 0, 0, 0, 0.035 ) !important;
+}
+
+/*
+
+Screens
+
+*/
+
+/*
+
+Tablet/Mobile
+
+*/
+
+@media ( max-width: 768px ) {
+    /*
+
+    Container
+
+    */
+
+    .type1,
+    .type2 {
+        position: fixed;
+        top: 90px;
+        inset-inline-start: -100%;
+
+        width: 100%;
+        height: calc( 100vh - 90px );
+
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+
+        padding: 20px 5%;
+        transition: inset-inline-start .5s ease-in-out;
+        z-index: 999999;
+    }
+
+    /*
+
+    Links
+
+    */
+
+    .type1 > *,
+    .type2 > * {
+        width: 100%;
+        max-width: 300px;
+        height: fit-content;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        padding: 20px;
+        
+        text-align: center;
+    }
+
+    .type2 > * {
+        background: rgba( 0, 0, 0, 0.035 ) !important;
+    }
+}

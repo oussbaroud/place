@@ -1,0 +1,134 @@
+.wrapper {
+  width: 100%;
+  height: 90px;
+
+  display: flex;
+  justify-content: center;
+
+  padding: 20px 5%;
+  background: var( --color-1 );
+  color: var( --color-2 );
+}
+
+/*
+
+Container
+
+*/
+
+.container {
+  flex: 1;
+  max-width: 1000px;
+
+  display: flex;
+  justify-content: space-between;
+  gap: 50px;
+
+  background: inherit;
+}
+
+/*
+
+Logo
+
+*/
+
+.logoContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+.logoContainer {
+  flex: 1;
+}
+#logo {
+  font-size: 36px;
+  font-weight: bold;
+}
+
+/*
+
+Menu button
+
+*/
+
+.menuBtn {
+  display: none;
+}
+
+#menuLabel {
+  width: 30px;
+  height: 30px;
+}
+
+#menuCb {
+  display: none;
+}
+
+/*
+
+Screens
+
+*/
+
+/*
+
+Tablet/Mobile
+
+*/
+
+@media ( max-width: 768px ) {
+  /*
+
+  Menu button
+
+  */
+
+  .menuBtn {
+    display: flex;
+  }
+
+  /*
+
+  Links
+
+  */
+
+  .logoContainer:has( #menuCb:checked ) ~ div {
+    inset-inline-start: 0;
+  }
+
+
+  /*
+
+  Main
+
+  */
+
+  .wrapper:has( #menuCb:checked ) ~ * {
+    display: none;
+    animation: hide .5s;
+  }
+}
+
+/*
+
+Animations
+
+*/
+
+@keyframes hide {
+  0% {
+      display: block;
+  }
+
+  99% {
+      display: block;
+  }
+
+  100% {
+      display: none;
+  }
+}

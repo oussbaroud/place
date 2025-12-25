@@ -1,0 +1,260 @@
+/*
+
+Styles
+
+*/
+
+/**
+
+Group
+
+**/
+
+.group {
+    position: relative;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+
+    background: transparent;
+}
+
+/**
+
+Wrapper
+
+**/
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.hiddenWrapper {
+    display: none;
+}
+
+/**
+
+Container
+
+**/
+
+.container {
+    position: relative;
+
+    flex: 1;
+    min-width: 175px;
+    min-height: 65px;
+
+    display: flex;
+    flex-wrap: nowrap;
+
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background: #fff;
+    cursor: pointer;
+}
+
+.containerHasError {
+    border-color: red;
+}
+
+.container:focus,
+.container:has( .selectionInput:focus ),
+.container:has( .textFieldInput:focus ),
+.container:has( .textAreaInput:focus ) {
+    border: 1px solid #2a9df4;
+}
+
+.containerHasError:focus,
+.containerHasError:has( .selectionInput:focus ),
+.containerHasError:has( .textFieldInput:focus ),
+.containerHasError:has( .textAreaInput:focus ) {
+    border: 1px solid red;
+}
+
+.container:focus .hiddenLabel,
+.container:focus .inputOptionLabelNotHidden,
+
+.container:has( .selectionInput:focus ) .hiddenLabel,
+.container:has( .textFieldInput:focus ) .hiddenLabel,
+.container:has( .textAreaInput:focus ) .hiddenLabel,
+
+.container:has( .selectionInput:focus ) .inputOptionLabelNotHidden,
+.container:has( .textFieldInput:focus ) .inputOptionLabelNotHidden,
+.container:has( .textAreaInput:focus ) .inputOptionLabelNotHidden {
+    display: block;
+    color: #2a9df4;
+}
+
+.containerHasError:focus .hiddenLabel,
+.containerHasError:focus .inputOptionLabelNotHidden,
+
+.containerHasError:has( .selectionInput:focus ) .hiddenLabel,
+.containerHasError:has( .textFieldInput:focus ) .hiddenLabel,
+.containerHasError:has( .textAreaInput:focus ) .hiddenLabel,
+
+.containerHasError:has( .selectionInput:focus ) .inputOptionLabelNotHidden,
+.containerHasError:has( .textFieldInput:focus ) .inputOptionLabelNotHidden,
+.containerHasError:has( .textAreaInput:focus ) .inputOptionLabelNotHidden {
+    display: block;
+    color: red;
+}
+
+/**
+
+Field
+
+**/
+
+.field {
+    width: 100%;
+    flex: 1 1 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+
+    padding: 10px 20px;
+
+    cursor: pointer;
+}
+
+/***
+
+Label
+Input
+
+***/
+
+.hiddenLabel,
+.selectionInput {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden !important;
+}
+
+/***
+
+Label
+
+***/
+
+.label,
+.hiddenLabel {
+    font-size: 14px;
+    color: #999;
+}
+
+.hiddenLabel {
+    display: none;
+}
+
+.containerHasError .hiddenLabel,
+.containerHasError .inputOptionLabelNotHidden {
+    color: red;
+}
+
+/***
+
+Input
+
+***/
+
+.selectionInput,
+.textFieldInput,
+.textAreaInput {
+    width: 100% !important;
+    
+    background: transparent;
+    border: none;
+
+    font-size: 16px;
+    color: var( --input-text-color );
+    text-align: start;
+}
+
+.textFieldInput:focus,
+.textAreaInput:focus {
+    outline: none;
+}
+
+/****
+
+Text field
+
+****/
+
+.wrapper:dir( rtl ) .textFieldInput::placeholder {
+    text-align: right;
+}
+
+.textFieldInput::placeholder, /* Chrom / Firefox */
+.textFieldInput::-ms-input-placeholder { /* Edge 12 -18 */
+    opacity: 1; /* Firefox */
+    color: #777;
+}
+
+.textFieldInput::-webkit-input-placeholder, /* Chrome/Opera/Safari */
+.textFieldInput::-moz-placeholder, /* Firefox 19+ */
+.textFieldInput:-ms-input-placeholder, /* IE 10+ */
+.textFieldInput:-moz-placeholder { /* Firefox 18- */
+    text-overflow: ellipsis;
+}
+
+/****
+
+Text area
+
+****/
+
+.textAreaInput {
+    resize: none;
+}
+
+.textAreaInput::-webkit-input-placeholder, /* Chrome/Opera/Safari */
+.textAreaInput:-moz-placeholder, /* Firefox 18- */
+.textAreaInput::-moz-placeholder, /* Firefox 19+ */
+.textAreaInput:-ms-input-placeholder { /* IE 10+ */
+    color: #777;
+    white-space: pre-line;  
+    position: relative;
+    top: 0;
+}
+
+/**
+
+Action
+
+**/
+
+.action {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.action:dir( ltr ) {
+    padding: 10px 20px 10px 0;
+}
+.action:dir( rtl ) {
+    padding: 10px 0 10px 20px;
+}
+
+.checkbox {
+    display: none;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: transparent;
+    border: none;
+    color: #777;
+
+    cursor: pointer;
+}

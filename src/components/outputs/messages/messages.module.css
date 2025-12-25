@@ -1,0 +1,25 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    
+    padding: 0 10px;
+    border-radius: 10px;
+    background: transparent;
+}
+.container:is( .center ) {
+    text-align: center;
+}
+
+.note {
+    white-space: pre-line;
+    color: #777;
+}
+.container:is( .center ) .note {
+    color: inherit;
+}
+
+.error {
+    white-space: pre-line;
+    color: red;
+}

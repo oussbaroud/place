@@ -1,0 +1,36 @@
+.wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+
+    padding-bottom: 5px;
+
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+
+.image {
+    flex-shrink: 0;
+    
+    height: 300px;
+    width: 450px;
+
+    border-radius: 10px;
+    background: #f5f5f5; 
+    object-fit: cover;
+}
+.container:has( > .image:only-child ) .image {
+    width: 600px;
+}
+
+@media ( max-width: 768px ) {
+    .image {
+        width: 300px;
+        height: 200px;
+    }
+}
