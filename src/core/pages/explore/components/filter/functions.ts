@@ -1,6 +1,6 @@
 // Import
 /// Types
-import { translate } from '@/core/dictionary';
+import { getGlobalDictionary } from '@/core/dictionary';
 import { FilterParams } from './types';
 
 /// Functions
@@ -11,6 +11,7 @@ import { shuffleArray } from '@/core/functions/data/array/functions';
 export function filter ( { lang, data, setState, setIsPending }: FilterParams ) {   
     // Variables
     let interval: null | NodeJS.Timeout = null;
+    const globalDictionary = getGlobalDictionary( { lang } );
  
     // Return
     return () => {
@@ -28,39 +29,19 @@ export function filter ( { lang, data, setState, setIsPending }: FilterParams ) 
                     (
                         state.filter.provinces.values.length === 0 ||
                         state.filter.provinces.values.some( ( province ) =>
-                            option.provinces.includes( translate( {
-                                lang: {
-                                    user: 'en',
-                                    input: lang
-                                },
-                                key: 'provinces',
-                                value: province
-                            } ) )
+                            option.provinces.includes( globalDictionary.inputOptions.provinces.find( ( provinceObject ) => provinceObject.value === province )?.id )
                         )
                     ) && (
                         state.filter.activities.values.length === 0 ||
                         state.filter.activities.values.some( ( activity ) =>
-                            option.activities.includes( translate( {
-                                lang: {
-                                    user: 'en',
-                                    input: lang
-                                },
-                                key: 'activities',
-                                value: activity
-                            } ) )
+                            option.activities.includes( globalDictionary.inputOptions.activities.find( ( activityObject ) => activityObject.value === activity )?.id )
                         )
                     ) && (
-                        state.filter.budget.value === '' ||
-                        option.budget === translate( {
-                            lang: {
-                                user: 'en',
-                                input: lang
-                            },
-                            key: 'budget',
-                            value: state.filter.budget.value
-                        } )
+                        state.filter.budget.values.length === 0 ||
+                        state.filter.budget.values.some( ( budget ) =>
+                            option.budget === globalDictionary.inputOptions.budget.find( ( budgetObject ) => budgetObject.value === budget )?.id
+                        )
                     )
-
                 );
 
                 // Return

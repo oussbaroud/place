@@ -12,7 +12,7 @@ export const englishDictionary = {
         input: {
             label: 'Wilaya',
             placeholder: 'Enter the province',
-            options: [ 'Not important', ...englishInputOptions.provinces ],
+            options: [ 'Not important', ...englishInputOptions.provinces.map( ( object ) => object.value ) ],
             default: `Not important`,
 
         }
@@ -21,7 +21,7 @@ export const englishDictionary = {
         input: {
             label: 'Activities',
             placeholder: 'Enter the activities',
-            options: [ 'Not important', ...englishInputOptions.activities ],
+            options: [ 'Not important', ...englishInputOptions.activities.map( ( object ) => object.value ) ],
             default: `Not important`,
         }
     },
@@ -29,7 +29,7 @@ export const englishDictionary = {
         input: {
             label: 'Budget',
             placeholder: 'Enter the budget',
-            options: [ 'Not important', ...englishInputOptions.budget ],
+            options: [ 'Not important', ...englishInputOptions.budget.map( ( object ) => object.value ) ],
             default: 'Not important',
         }
     },
@@ -41,7 +41,7 @@ export const frenchDictionary = {
         input: {
             label: 'Wilaya',
             placeholder: 'Enter la wilaya',
-            options: [ 'Pas important', ...frenchInputOptions.provinces ],
+            options: [ 'Pas important', ...frenchInputOptions.provinces.map( ( object ) => object.value ) ],
             default: 'Pas important',
 
         }
@@ -50,7 +50,7 @@ export const frenchDictionary = {
         input: {
             label: 'Activités',
             placeholder: 'Enter les activités',
-            options: [ 'Pas important', ...frenchInputOptions.activities ],
+            options: [ 'Pas important', ...frenchInputOptions.activities.map( ( object ) => object.value ) ],
             default: 'Pas important',
         }
     },
@@ -58,7 +58,7 @@ export const frenchDictionary = {
         input: {
             label: 'Budget',
             placeholder: 'Enter le budget',
-            options: [ 'Pas important', ...frenchInputOptions.budget ],
+            options: [ 'Pas important', ...frenchInputOptions.budget.map( ( object ) => object.value ) ],
             default: 'Pas important',
         }
     },
@@ -70,7 +70,7 @@ export const arabicDictionary = {
         input: {
             label: 'الولاية',
             placeholder: 'أدخل الولاية',
-            options: [ 'غير مهم', ...arabicInputOptions.provinces ],
+            options: [ 'غير مهم', ...arabicInputOptions.provinces.map( ( object ) => object.value ) ],
             default: 'غير مهم',
         }
     },
@@ -78,7 +78,7 @@ export const arabicDictionary = {
         input: {
             label: 'النشاطات',
             placeholder: 'أدخل النشاطات',
-            options: [ 'غير مهم', ...arabicInputOptions.activities ],
+            options: [ 'غير مهم', ...arabicInputOptions.activities.map( ( object ) => object.value ) ],
             default: 'غير مهم',
         }
     },
@@ -86,7 +86,7 @@ export const arabicDictionary = {
         input: {
             label: 'المصروف',
             placeholder: 'أدخل المصروف',
-            options: [ 'غير مهم', ...arabicInputOptions.budget ],
+            options: [ 'غير مهم', ...arabicInputOptions.budget.map( ( object ) => object.value ) ],
             default: 'غير مهم',
         }
     },

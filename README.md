@@ -1,16 +1,20 @@
 Tasks
     Dev
-        - Add all provices
-        - Remove reviews
+        - Update global dictionary
+        - Make budget filter input accept multiple values
+
+        - Add the site is new please check now and then for new options messages
         - Add list query to explore
         - Add 5 options when user reach half of the scroll bar to the explore page
+        - Host redis
+
         - Make font size responsive to screen size
         - Add latin font
+        - Make link thumbnail
+        - Update favicon to start
+
         - Rename core to lib
         - Create components for option
-        - Make link thumbnail
-        - Host redis
-        - Replace database dictionary values with ids
 
         - Add list creation
         - Add request option

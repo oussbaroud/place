@@ -3,7 +3,6 @@
 import { RefObject } from 'react';
 import { DispatchSetState, DivRef, IsPending, Lang } from '@/core/types';
 import { TextInputCOState } from '@/core/components/inputs/text/text/types';
-import { SelectInputState } from '@/core/components/inputs/select/types';
 import { Option } from '@/core/actions/options/types';
 
 // Types
@@ -14,7 +13,7 @@ export type State = {
   filter: {
     provinces: TextInputCOState;
     activities: TextInputCOState;
-    budget: SelectInputState;
+    budget: TextInputCOState;
     errors: string [];
   };
   errors: string [];

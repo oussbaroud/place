@@ -1,7 +1,4 @@
 // Import
-/// Dictionary
-import { getGlobalDictionary } from '@/core/dictionary';
-
 /// Types / Safeguards
 import { DateToDateStringParams, IsEqualsDatesParams } from './types';
 

@@ -15,7 +15,6 @@ import styles from './filter.module.css';
 
 /// Components
 import TextInput from '@/core/components/inputs/text/text/input';
-import SelectInput from '@/core/components/inputs/select/input';
 import CustomButton from '@/core/components/inputs/button/custom/button';
 
 // Component
@@ -64,9 +63,13 @@ export default function Filter () {
                 state={ state.filter.activities }
                 setState={ getPathSetState( { setState, path: [ 'filter', 'activities' ] } ) }
             />
-            <SelectInput
+            <TextInput
                 ref={ ref.current.filter.budget }
-                lang={ lang }
+                lang={ {
+                    user: lang,
+                    input: lang
+                } }
+                type={ 'field-co' }
                 label={ dictionary.budget.input.label }
                 placeholder={ dictionary.budget.input.placeholder }
                 options={ [ ...dictionary.budget.input.options ] }

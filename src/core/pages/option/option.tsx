@@ -2,14 +2,14 @@
 
 // Import
 /// Dictionary
-import { getGlobalDictionary, translate } from '@/core/dictionary';
+import { getGlobalDictionary } from '@/core/dictionary';
 import { getOptionDictionary } from './dictionary';
 
 /// Types
 import { OptionState } from './types';
 
 /// Safeguards
-import { isDeparture, isEvent, isMeetup, isPlace } from '@/core/actions/options/types';
+import { isExcursion, isEvent, isMeetup, isPlace } from '@/core/actions/options/types';
 
 /// Functions
 import { useEffect, useState } from 'react';
@@ -34,8 +34,9 @@ export default function Option () {
 
     // Dictionary
     const lang = useGlobalContext().lang;
-    const days = getGlobalDictionary( { lang } ).date.days;
     const dictionary = getOptionDictionary( { lang } );
+    const globalDictionary = getGlobalDictionary( { lang } );
+    const days = globalDictionary.date.days;
 
     // Use state
     const [ isPending, setIsPending ] = useState< boolean >( true );
@@ -98,15 +99,7 @@ export default function Option () {
                                 <Section
                                     type={ 'row' }
                                     label={ dictionary.activities.label }
-                                    values={
-                                        state.option?.activities.map( ( value ) =>
-                                            translate( {
-                                                lang: { user: lang, input: 'en' },
-                                                key: 'activities',
-                                                value }
-                                            )
-                                        )
-                                    }
+                                    values={ state.option?.activities.map( ( id ) => globalDictionary.inputOptions.activities.find( ( activity ) => activity.id === id )?.value as string ) }
                                     isPending={ isPending }
                                 />
                                 <Section
@@ -116,12 +109,7 @@ export default function Option () {
                                         value: state.option?.address[ lang ]
                                     }, {
                                         label: dictionary.budget.label,
-                                        value: state.option?.budget &&
-                                            translate( {
-                                                lang: { user: lang, input: 'en' },
-                                                key: 'budget',
-                                                value: state.option.budget
-                                            } )
+                                        value: globalDictionary.inputOptions.budget.find( ( budget ) => budget.id === state.option?.budget )?.value
                                     }, {
                                         label: dictionary.by.label,
                                         value: state.option?.by[ lang ]
@@ -144,7 +132,7 @@ export default function Option () {
                                     />
                                 }
                                 {
-                                    isDeparture( state.option ) &&
+                                    isExcursion( state.option ) &&
                                     <Section
                                         type={ 'row' }
                                         label={ dictionary.location.label }
@@ -170,11 +158,11 @@ export default function Option () {
                                     />
                                 }
                                 {
-                                    ( isDeparture( state.option ) || isMeetup( state.option ) || isEvent( state.option ) ) &&
+                                    ( isExcursion( state.option ) || isMeetup( state.option ) || isEvent( state.option ) ) &&
                                     <Section
                                         type={ 'column' }
                                         values={ 
-                                            isDeparture( state.option ) ? [ 
+                                            isExcursion( state.option ) ? [ 
                                                 { label: dictionary.date.label, value: dateToDateString( { lang, value: state.option.departures[ 0 ].date } ) },
                                                 { label: dictionary.time.label, value: dateToTime( { lang, value: state.option.departures[ 0 ].date } ) },
                                             ] :

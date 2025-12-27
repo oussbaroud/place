@@ -5,7 +5,7 @@
 import { getDictionary } from '@/core/config/database/dictionary';
 
 /// Types
-import { GetOptionParams, GetOptionReturn, GetOptionsParams, GetOptionsReturn, isDeparture, isEvent, isMeetup, isPlace } from './types';
+import { GetOptionParams, GetOptionReturn, GetOptionsParams, GetOptionsReturn, isExcursion, isEvent, isMeetup, isPlace } from './types';
 
 /// Database
 import { connectDatabase } from '@/core/config/database/actions';
@@ -39,7 +39,7 @@ export async function getOptions ( { lang }: GetOptionsParams ): Promise< GetOpt
         .map( ( option ) => {
             option._id = String( option._id );
             
-            if ( isDeparture( option ) )
+            if ( isExcursion( option ) )
             option.departures = option.departures.filter( ( departure ) =>
                 departure.date.getTime() > ( ( new Date() ).getTime() + 21600000 )
             );
@@ -57,7 +57,7 @@ export async function getOptions ( { lang }: GetOptionsParams ): Promise< GetOpt
                 ( !option.activeMonths || option.activeMonths.includes( ( new Date() ).getMonth() ) )
             ) ||
             (
-                isDeparture( option ) &&
+                isExcursion( option ) &&
                 option.departures.some( ( departure ) =>
                     departure.date.getTime() > ( ( new Date() ).getTime() + 21600000 )
                 )
