@@ -62,7 +62,7 @@ export default function Section ( props: SectionProps ) {
                         <div
                             className={ styles.table }
                         >{
-                            props.values?.map( ( item, index ) => (
+                            props.values?.map( ( item, index ) => item.value && (
                                 <div
                                     key={ index }
                                     className={ styles.item }

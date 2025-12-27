@@ -12,7 +12,6 @@ interface BaseOption {
     address: Record< Lang, string >;
     provinces: string [];
     budget: string;
-    reviews: string;
     by: Record< Lang, string >;
     createdAt: Date;
 };

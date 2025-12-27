@@ -1,6 +1,5 @@
 // Import
 /// Dictionary
-import { translate } from '@/core/dictionary';
 import { getOptionsDictionary } from './dictionary';
 
 /// Functions
@@ -42,27 +41,13 @@ export default function Options () {
                 </div>
             ) : (
                 <>{
-                    state.options.map( ( { _id, images, title, address, budget, reviews, by }, index ) => (
+                    state.options.map( ( { _id, images, title, address, by }, index ) => (
                         <Option
                             key={ index }
                             id={ _id }
                             images={ images }
                             title={ title[ lang ] }
                             address={ address[ lang ] }
-                            budget={
-                                translate( {
-                                    lang: { user: lang, input: 'en' },
-                                    key: 'budget',
-                                    value: budget
-                                } )
-                            }
-                            reviews={
-                                translate( {
-                                    lang: { user: lang, input: 'en' },
-                                    key: 'reviews',
-                                    value: reviews
-                                } )
-                            }
                             by={ by[ lang ] }
                         />
                     ) )

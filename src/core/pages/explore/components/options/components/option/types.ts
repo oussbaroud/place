@@ -4,7 +4,5 @@ export type OptionProps = {
     images: string [];
     title: string;
     address: string;
-    budget: string;
-    reviews: string;
     by: string;
 };
