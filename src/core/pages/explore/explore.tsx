@@ -8,7 +8,7 @@ import { Context, DataValue, RefValue, State } from './types';
 import { iState } from './variables';
 
 /// Functions
-import { useEffect, useId, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { addClickEventListener } from '@/core/functions/functions';
 import { useGlobalContext } from '@/core/functions/hooks/context/functions';
 import { onMount } from './functions';
@@ -26,7 +26,6 @@ import { CTX } from './functions';
 // Component
 export default function Explore () {
     // Variables
-    const id = useId();
     const lang = useGlobalContext().lang;
 
     // Use states
@@ -73,7 +72,6 @@ export default function Explore () {
                 className={ styles.container }
             >
                 <CTX.Provider value={ context }>
-                    <span id={ id } style={ { display: 'none' } }>{ id }</span>
                     <Filter/>
                     <Options/>
                 </CTX.Provider>

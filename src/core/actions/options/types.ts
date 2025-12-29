@@ -11,14 +11,14 @@ interface BaseOption {
     activities: string [];
     address: Record< Lang, string >;
     provinces: string [];
-    budget: string;
+    budget: string [];
     by: Record< Lang, string >;
     createdAt: Date;
 };
 
 export interface Place extends BaseOption {
     category: 'Place';
-    type: string;
+    types: string [];
     hours?: Record< ( '0' | '1' | '2' | '3' | '4' | '5' | '6' ), string [] >;
     location: string;
     phoneNumbers?: string [];
@@ -44,7 +44,7 @@ export interface Meetup extends BaseOption {
 
 export interface Event extends BaseOption {
     category: 'Event';
-    type: string;
+    types: string  [];
     schedule: {
         from: Date;
         to: Date;

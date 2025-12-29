@@ -11,6 +11,7 @@ import styles from './options.module.css';
 
 /// Components
 import Option from './components/option/option';
+import Message from './components/message/message';
 
 // Component
 export default function Options () {
@@ -26,6 +27,8 @@ export default function Options () {
     // Return
     return (
         <div className={ styles.wrapper }>{
+            <Message/>
+        } {
             state.errors.length > 0 ? (
                 <div
                     className={ styles.error }

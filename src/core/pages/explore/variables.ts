@@ -8,7 +8,6 @@ import { State } from './types';
 
 /// Variables
 import { iTextInputCOState } from '@/core/components/inputs/text/text/variables';
-import { iSelectInputState } from '@/core/components/inputs/select/variables';
 
 // Variables
 /// State
@@ -29,7 +28,10 @@ export const iState = ( { lang }: IStateParams ): State => {
                 ...iTextInputCOState,
                 options: [ ...dictionary.activities.input.options ]
             },
-            budget: iSelectInputState,
+            budget: {
+                ...iTextInputCOState,
+                options: [ ...dictionary.budget.input.options ]
+            },
             errors: []
         },
         errors: []

@@ -1,21 +1,21 @@
 Tasks
     Dev
-        - Update global dictionary
-        - Make budget filter input accept multiple values
+        - Update dictionary
+        - Add message to explore
 
-        - Add the site is new please check now and then for new options messages
-        - Add list query to explore
-        - Add 5 options when user reach half of the scroll bar to the explore page
+        - Fetch from the explore page 20 options initially then 20 every time the user reach half of the scroll bar
         - Host redis
 
         - Make font size responsive to screen size
         - Add latin font
         - Make link thumbnail
         - Update favicon to start
+        - Make landing video get videos from s3 bucket
 
         - Rename core to lib
         - Create components for option
 
+        - Add lists
         - Add list creation
         - Add request option
         - Add request option update
@@ -51,3 +51,13 @@ Notes
         - Consistency
         - Iteration using analytics
         - Remake winning videos with new angles
+
+Ideas
+    Content
+        Stage 1: Female Youth
+            - Viral music
+            - Advice speech
+            - Video clips
+
+        - Earth zoom
+        - Walking people taking camera to each other
