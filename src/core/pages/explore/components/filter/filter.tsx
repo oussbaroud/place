@@ -24,8 +24,8 @@ export default function Filter () {
 
     const [ state, setState ] = context.state;
     const [ isPending, setIsPending ] = context.isPending;
+    const [ needRequest, setNeedRequest ] = context.needRequest;
 
-    const data = context.data;
     const ref = context.ref;
 
     // Dictionary
@@ -81,7 +81,7 @@ export default function Filter () {
                 value={ getDictionary( { lang } ).value }
                 color={ 'Co1' }
                 isActive={ true }
-                onClick={ filter( { lang, data, setState, setIsPending } ) }
+                onClick={ filter( { setState, setIsPending, setNeedRequest } ) }
                 isPending={ isPending }
             />
         </div>

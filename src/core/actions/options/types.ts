@@ -55,8 +55,26 @@ export interface Event extends BaseOption {
 
 export type Option = Place | Excursion | Meetup | Event;
 
+
+export type FilterOptionsParams = {
+    lang: Lang;
+    options: Option [];
+    filter?: {
+        exclude: string [];
+        provinces: string [];
+        activities: string [];
+        budget: string [];
+    };
+};
+
 export type GetOptionsParams = {
     lang: Lang;
+    filter?: {
+        exclude: string [];
+        provinces: string [];
+        activities: string [];
+        budget: string [];
+    };
 };
 
 export type GetOptionsReturn = {

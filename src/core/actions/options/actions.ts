@@ -2,10 +2,14 @@
 
 // Import
 /// Dictionary
+import { getGlobalDictionary } from '@/core/dictionary';
 import { getDictionary } from '@/core/config/database/dictionary';
 
 /// Types
-import { GetOptionParams, GetOptionReturn, GetOptionsParams, GetOptionsReturn, isExcursion, isEvent, isMeetup, isPlace } from './types';
+import { Option as OptionType, GetOptionParams, GetOptionReturn, GetOptionsParams, GetOptionsReturn, isExcursion, isEvent, isMeetup, isPlace, FilterOptionsParams } from './types';
+
+/// Functions
+import { shuffleArray } from '@/core/functions/data/array/functions';
 
 /// Database
 import { connectDatabase } from '@/core/config/database/actions';
@@ -13,17 +17,60 @@ import { Option } from './models';
 import { getCache, storeCache } from '@/core/config/cache/actions';
 
 // Functions
-export async function getOptions ( { lang }: GetOptionsParams ): Promise< GetOptionsReturn > {
+function filterOptions ( params: FilterOptionsParams ) {
+    // Variables
+    const globalDictionary = getGlobalDictionary( { lang: params.lang } );
+    const result: OptionType[] = [];
+
+    // For
+    for ( const option of params.options ) {
+        if (
+            (
+                !params.filter
+            ) ||
+            (
+                (
+                    !params.filter.exclude.includes( option._id )
+                ) &&
+                (
+                    params.filter.provinces.length === 0 ||
+                    params.filter.provinces.some( ( province ) =>
+                        option.provinces.includes( globalDictionary.inputOptions.provinces.find( ( provinceObject ) => provinceObject.value === province )?.id as string )
+                    )
+                ) && (
+                    params.filter.activities.length === 0 ||
+                    params.filter.activities.some( ( activity ) =>
+                        option.activities.includes( globalDictionary.inputOptions.activities.find( ( activityObject ) => activityObject.value === activity )?.id as string )
+                    )
+                ) && (
+                    params.filter.budget.length === 0 ||
+                    params.filter.budget.some( ( budget ) =>
+                        option.budget.includes( globalDictionary.inputOptions.budget.find( ( budgetObject ) => budgetObject.value === budget )?.id as string )
+                    )
+                )            
+            )
+        )
+        result.push( option );
+
+        if ( result.length === 20 )
+        break;
+    };
+
+    // Return
+    return result;
+};
+
+export async function getOptions ( { lang, filter }: GetOptionsParams ): Promise< GetOptionsReturn > {
     // Dictionary
     const dictionary = getDictionary( { lang } );
 
     // Get cache
     const cachKey = '/explore';
-    const cachResponse = await getCache( { lang, key: cachKey } );
+    const cachResponse = await getCache< OptionType [] >( { lang, key: cachKey } );
 
     // If got cach
     if ( cachResponse.success )
-    return { success: true, options: cachResponse.data };
+    return { success: true, options: filterOptions( { lang, options: cachResponse.data, filter } ) };
 
     // Connect to database
     const databaseResponse = await connectDatabase( { lang } );
@@ -35,7 +82,7 @@ export async function getOptions ( { lang }: GetOptionsParams ): Promise< GetOpt
     // Try
     try {
         // Get database
-        const options = ( await Option.find().lean() )
+        const options = shuffleArray( { array: await Option.find().lean() } )
         .map( ( option ) => {
             option._id = String( option._id );
             
@@ -79,7 +126,7 @@ export async function getOptions ( { lang }: GetOptionsParams ): Promise< GetOpt
         await storeCache( { lang, key: cachKey, data: options, expirationTime } );
         
         // Return
-        return { success: true, options };
+        return { success: true, options: filterOptions( { lang, options, filter } ) };
 
     // Catch
     } catch ( error ) {
@@ -102,7 +149,7 @@ export async function getOption ( { lang, id }: GetOptionParams ): Promise< GetO
 
     // Get cache
     const cachKey = '/explore/' + id;
-    const cachResponse = await getCache( { lang, key: cachKey } );
+    const cachResponse = await getCache< OptionType >( { lang, key: cachKey } );
 
     // If got cach
     if ( cachResponse.success )

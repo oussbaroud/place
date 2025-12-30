@@ -9,23 +9,25 @@ import { Option } from '@/core/actions/options/types';
 /// State / SetState
 export type State = {
   lang: Lang;
+  exclude: string [];
   options: Option [];
   filter: {
     provinces: TextInputCOState;
     activities: TextInputCOState;
     budget: TextInputCOState;
-    errors: string [];
   };
   errors: string [];
 };
 
 export type SetState = DispatchSetState< State >;
 
-/// Options
-export type DataValue = {
-  options: Option [];
+/// Has change
+export type Request = {
+  exclude: string [];
+  provinces: string [];
+  activities: string [];
+  budget: string [];
 };
-export type Data = RefObject< DataValue >;
 
 /// Ref
 export type RefValue = {
@@ -40,15 +42,20 @@ export type Ref =  RefObject< RefValue >;
 /// Context
 export type Context = { 
   state: [ State, SetState ];
-  data: Data;
   isPending: IsPending;
+  needRequest: [ boolean, DispatchSetState< boolean > ];
   ref: Ref;
 };
 
 /// Functions
-export type OnMountParams = {
+export type OnRequestParams = {
     lang: Lang;
-    data: Data;
+    state: State;
     setState: DispatchSetState< State >;
     setIsPending: DispatchSetState< boolean >;
+    setNeedRequest: DispatchSetState< boolean >;
+};
+
+export type UseNeedRequestParams = {
+    state: State;
 };

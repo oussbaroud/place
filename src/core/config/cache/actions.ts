@@ -76,7 +76,7 @@ export async function storeCache ( { lang, key, data, expirationTime }: StoreCac
   };
 };
 
-export async function getCache ( { lang, key }: GetCacheParams ): Promise< GetCacheReturn > {
+export async function getCache< T > ( { lang, key }: GetCacheParams ): Promise< GetCacheReturn< T > > {
   // Dictionary
   const dictionary = getDictionary( { lang } );
 

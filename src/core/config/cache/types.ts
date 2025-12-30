@@ -37,15 +37,15 @@ export type GetCacheParams = {
     lang: Lang;
     key: string;
 };
-export type GetCacheReturn = {
+export type GetCacheReturn< T > = {
     success: true;
-    data: any;
+    data: T;
 } | {
     success: false;
     errors: {
         errors: string [];
     };
-};;
+};
 
 export type DeleteCacheParams = {
     lang: Lang;

@@ -56,23 +56,12 @@ export default function Options () {
                     ) )
                 } {
                     isPending &&
-                    <>
+                    [ ...Array( state.options.length === 0 ? 5 : 1 ).keys() ].map( ( _, index ) =>
                         <div
+                            key={ index }
                             className={ `${ styles.skeleton } ${ pendingStyles.skeleton }` }
                         ></div>
-                        <div
-                            className={ `${ styles.skeleton } ${ pendingStyles.skeleton }` }
-                        ></div>
-                        <div
-                            className={ `${ styles.skeleton } ${ pendingStyles.skeleton }` }
-                        ></div>
-                        <div
-                            className={ `${ styles.skeleton } ${ pendingStyles.skeleton }` }
-                        ></div>
-                        <div
-                            className={ `${ styles.skeleton } ${ pendingStyles.skeleton }` }
-                        ></div>
-                    </>
+                    )
                 }</>
             )
         }</div>

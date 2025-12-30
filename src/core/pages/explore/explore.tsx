@@ -2,7 +2,7 @@
 
 // Import
 /// Types
-import { Context, DataValue, RefValue, State } from './types';
+import { Context, RefValue, State } from './types';
 
 /// Variables
 import { iState } from './variables';
@@ -11,7 +11,7 @@ import { iState } from './variables';
 import { useEffect, useRef, useState } from 'react';
 import { addClickEventListener } from '@/core/functions/functions';
 import { useGlobalContext } from '@/core/functions/hooks/context/functions';
-import { onMount } from './functions';
+import { onRequest, useNeedRequest } from './functions';
 
 /// Styles
 import styles from './explore.module.css';
@@ -29,13 +29,11 @@ export default function Explore () {
     const lang = useGlobalContext().lang;
 
     // Use states
-    const [ isPending, setIsPending ] = useState< boolean >( true );
     const [ state, setState ] = useState< State >( iState( { lang } ) );
+    const [ isPending, setIsPending ] = useState< boolean >( true );
+    const [ needRequest, setNeedRequest ] = useNeedRequest( { state } );
 
     /// Use ref
-    const data = useRef< DataValue >( {
-        options: []
-    } ); 
     const ref = useRef< RefValue >( {
         filter: {
             provinces: useRef< null | HTMLDivElement >( null ),
@@ -52,16 +50,17 @@ export default function Explore () {
     }, [] );
 
     useEffect( () => {
-        // Get options
-        onMount( { lang, data, setState, setIsPending } );
+        // Request
+        if ( needRequest )
+        onRequest( { lang, state, setState, setIsPending, setNeedRequest } );
 
-    }, [] );
+    }, [ needRequest ] );
 
     // Context value
     const context: Context = { 
         state: [ state, setState ],
-        data: data,
         isPending: [ isPending, setIsPending ],
+        needRequest: [ needRequest, setNeedRequest ],
         ref
     };
     

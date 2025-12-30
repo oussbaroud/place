@@ -1,7 +1,6 @@
 Tasks
     Dev
         - Update dictionary
-        - Add message to explore
 
         - Fetch from the explore page 20 options initially then 20 every time the user reach half of the scroll bar
         - Host redis
@@ -14,6 +13,7 @@ Tasks
 
         - Rename core to lib
         - Create components for option
+        - Add type at the end of types
 
         - Add lists
         - Add list creation

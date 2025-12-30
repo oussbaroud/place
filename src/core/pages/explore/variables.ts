@@ -18,6 +18,7 @@ export const iState = ( { lang }: IStateParams ): State => {
     // Return
     return {
         lang,
+        exclude: [],
         options: [],
         filter: {
             provinces: {
@@ -31,8 +32,7 @@ export const iState = ( { lang }: IStateParams ): State => {
             budget: {
                 ...iTextInputCOState,
                 options: [ ...dictionary.budget.input.options ]
-            },
-            errors: []
+            }
         },
         errors: []
     };
