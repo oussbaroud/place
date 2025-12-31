@@ -69,7 +69,7 @@ export async function getOptions ( { lang, filter }: GetOptionsParams ): Promise
     const cachResponse = await getCache< OptionType [] >( { lang, key: cachKey } );
 
     // If got cach
-    if ( cachResponse.success )
+    if ( cachResponse.success && cachResponse.data )
     return { success: true, options: filterOptions( { lang, options: cachResponse.data, filter } ) };
 
     // Connect to database
