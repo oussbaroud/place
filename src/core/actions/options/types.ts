@@ -17,7 +17,7 @@ interface BaseOption {
 };
 
 export interface Place extends BaseOption {
-    category: 'Place';
+    category: '1';
     types: string [];
     hours?: Record< ( '0' | '1' | '2' | '3' | '4' | '5' | '6' ), string [] >;
     location: string;
@@ -26,7 +26,7 @@ export interface Place extends BaseOption {
 };
 
 export interface Excursion extends BaseOption {
-    category: 'Excursion';
+    category: '4';
     departures: {
         date: Date;
         location: string;
@@ -36,14 +36,14 @@ export interface Excursion extends BaseOption {
 };
 
 export interface Meetup extends BaseOption {
-    category: 'Meetup';
+    category: '3';
     dates: Date [];
     location: string;
     phoneNumbers: string [];
 };
 
 export interface Event extends BaseOption {
-    category: 'Event';
+    category: '2';
     types: string  [];
     schedule: {
         from: Date;
@@ -104,17 +104,17 @@ export type GetOptionReturn = {
 
 // Safeguards
 export function isPlace ( props: any ): props is Place {
-    return props?.category === 'Place';
+    return props?.category === '1';
 };
 
 export function isExcursion ( props: any ): props is Excursion {
-    return props?.category === 'Excursion';
+    return props?.category === '4';
 };
 
 export function isMeetup ( props: any ): props is Meetup {
-    return props?.category === 'Meetup';
+    return props?.category === '3';
 };
 
 export function isEvent ( props: any ): props is Event {
-    return props?.category === 'Event';
+    return props?.category === '2';
 };
