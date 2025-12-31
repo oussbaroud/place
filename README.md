@@ -1,7 +1,5 @@
 Tasks
     Dev
-        - Update dictionary
-
         - Rename core to lib
         - Create components for option
         - Add type at the end of types
@@ -12,7 +10,6 @@ Tasks
         - Add request option update
 
     Content
-        - Modify option images, reviews and remove budget, completed
         - Add 100 options ( 1 added ) before 15/1/2026
 
     Marketing

@@ -109,7 +109,7 @@ export default function Option () {
                                         value: state.option?.address[ lang ]
                                     }, {
                                         label: dictionary.budget.label,
-                                        value: globalDictionary.inputOptions.budget.find( ( budget ) => budget.id === state.option?.budget )?.value
+                                        value: state.option?.budget.map( ( id ) => globalDictionary.inputOptions.budget.find( ( budget ) => budget.id === id )?.value as string )
                                     }, {
                                         label: dictionary.by.label,
                                         value: state.option?.by[ lang ]
