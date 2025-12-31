@@ -23,6 +23,7 @@
 }
 
 #message {
+  text-wrap: balance;
   font-size: 18px;
   color: #777;
 }

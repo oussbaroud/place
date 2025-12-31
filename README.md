@@ -4,7 +4,6 @@ Tasks
 
         - Host redis
 
-        - Make font size responsive to screen size done
         - Add latin font
         - Update favicon to start
         - Make landing video get videos from s3 bucket

@@ -60,7 +60,7 @@
     color: #777;
 }
 .row span:last-child {
-    font-weight: 600;
+    font-weight: 500;
 }
 
 @media ( max-width: 1024px ) {

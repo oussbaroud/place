@@ -22,31 +22,30 @@ Fonts
 
 */
 
-:lang( en ),
-:lang( fr ),
 :lang( ar ) {
   font-family: var( --font-arabic );
   line-height: 1.5;
   font-weight: 400;
 }
 
-h1:lang( en ),
-h1:lang( fr ),
-h1:lang( ar ) {
+:lang( en ),
+:lang( fr ) {
+  font-family: var( --font-latin );
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+h1 {
   font-size: 32px;
   font-weight: 700;
 }
 
-h2:lang( en ),
-h2:lang( fr ),
-h2:lang( ar ) {
+h2 {
   font-size: 24px;
   font-weight: 600;
 }
 
-h3:lang( en ),
-h3:lang( fr ),
-h3:lang( ar ) {
+h3{
   font-size: 20px;
   font-weight: 600;
 }
