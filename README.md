@@ -3,8 +3,6 @@ Tasks
         - Update dictionary
 
         - Host redis
-
-        - Update favicon to start
         - Make landing video get videos from s3 bucket
 
         - Rename core to lib

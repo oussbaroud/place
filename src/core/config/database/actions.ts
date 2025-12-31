@@ -22,7 +22,7 @@ export async function connectDatabase ( { lang }: ConnectDatabaseParams ): Promi
     // If disconnected
     /// Try
     try {
-        await mongoose.connect( process.env.MONGODB as string );
+        await mongoose.connect( process.env.MONGODB_URL as string );
         return { success: true };
 
     /// Catch
