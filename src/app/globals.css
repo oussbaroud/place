@@ -32,7 +32,6 @@ Fonts
 :lang( fr ) {
   font-family: var( --font-latin );
   line-height: 1.5;
-  font-weight: 400;
 }
 
 h1 {
