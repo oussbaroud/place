@@ -97,7 +97,7 @@ export async function onRequest ( { lang, state, setState, setIsPending, setNeed
 
     // If failed
     if ( !response.success )
-    setState( ( state ) => ( {
+    return setState( ( state ) => ( {
         ...state,
         options: [],
         errors: response.errors.errors

@@ -1,5 +1,6 @@
 Tasks
     Dev
+        - Add notfound message to option
         - Rename core to lib
         - Create components for option
         - Add type at the end of types
