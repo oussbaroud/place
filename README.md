@@ -2,8 +2,6 @@ Tasks
     Dev
         - Update dictionary
 
-        - Host redis
-
         - Rename core to lib
         - Create components for option
         - Add type at the end of types
