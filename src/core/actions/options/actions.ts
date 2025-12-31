@@ -152,7 +152,7 @@ export async function getOption ( { lang, id }: GetOptionParams ): Promise< GetO
     const cachResponse = await getCache< OptionType >( { lang, key: cachKey } );
 
     // If got cach
-    if ( cachResponse.success )
+    if ( cachResponse.success && cachResponse.data )
     return { success: true, option: cachResponse.data };
 
     // Connect to database
