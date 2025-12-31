@@ -2,12 +2,10 @@ Tasks
     Dev
         - Update dictionary
 
-        - Fetch from the explore page 20 options initially then 20 every time the user reach half of the scroll bar
         - Host redis
 
-        - Make font size responsive to screen size
+        - Make font size responsive to screen size done
         - Add latin font
-        - Make link thumbnail
         - Update favicon to start
         - Make landing video get videos from s3 bucket
 

@@ -23,6 +23,11 @@ export default function CustomButton ( props: CustomButtonProps ) {
 
   // Return
   return (
-    <button className={ inputClassName } id={ inputId } type={ inputType } onClick={ inputOnClick }>{ inputValue }</button>
+    <button
+      className={ inputClassName }
+      id={ inputId }
+      type={ inputType }
+      onClick={ inputOnClick }
+    >{ inputValue }</button>
   );
 }
