@@ -3,7 +3,6 @@ Tasks
         - Update dictionary
 
         - Host redis
-        - Make landing video get videos from s3 bucket
 
         - Rename core to lib
         - Create components for option

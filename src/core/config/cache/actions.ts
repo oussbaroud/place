@@ -27,10 +27,7 @@ export async function connectCache ( { lang }: ConnectCacheParams ): Promise< Co
   /// Try
   try {
     client = createClient( {
-      socket: {
-        host: process.env.REDIS_HOST, 
-        port: Number( process.env.REDIS_PORT )
-      }
+      url: process.env.REDIS_URL
     } );
 
     await client.connect();
