@@ -27,24 +27,28 @@ Fonts
   line-height: 1.5;
 }
 
-:lang( en ),
-:lang( fr ) {
+:is( :lang( en ), :lang( fr ) ) {
   font-family: var( --font-latin );
-  line-height: 1.5;
+  line-height: 1.4;
 }
 
 h1 {
   font-size: 32px;
-  font-weight: 400;
 }
 
 h2 {
   font-size: 24px;
-  font-weight: 400;
 }
 
 h3{
   font-size: 20px;
+}
+
+:is( h1, h2, h3, button ):lang( ar ) {
+  font-weight: 500;
+}
+
+:is( h1, h2, h3, button ):is( :lang( en ), :lang( fr ) ) {
   font-weight: 400;
 }
 

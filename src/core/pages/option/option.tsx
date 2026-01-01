@@ -212,9 +212,13 @@ export default function Option () {
                     </div>     
                 </>
             ) : (
-                <h2
-                    className={ styles.error }
-                >{ state.errors[ 0 ] }</h2>
+                <div
+                    className={ styles.errorContainer  }
+                >
+                    <h2
+                        className={ styles.error }
+                    >{ state.errors[ 0 ] }</h2>
+                </div>
             )
         }</div>
     );

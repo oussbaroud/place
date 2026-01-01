@@ -59,8 +59,11 @@
     border-inline-end: 1px solid var( --color-3 );
     color: #777;
 }
-.row span:last-child {
+.row span:last-child:lang( ar ) {
     font-weight: 500;
+}
+.row span:last-child:is( :lang( en ), :lang( fr ) ) {
+    font-weight: 400;
 }
 
 @media ( max-width: 1024px ) {

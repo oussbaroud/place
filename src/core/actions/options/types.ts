@@ -25,23 +25,6 @@ export interface Place extends BaseOption {
     activeMonths?: number [];
 };
 
-export interface Excursion extends BaseOption {
-    category: '4';
-    departures: {
-        date: Date;
-        location: string;
-    } [];
-    destination: string;
-    phoneNumbers: string [];
-};
-
-export interface Meetup extends BaseOption {
-    category: '3';
-    dates: Date [];
-    location: string;
-    phoneNumbers: string [];
-};
-
 export interface Event extends BaseOption {
     category: '2';
     types: string  [];
@@ -53,8 +36,24 @@ export interface Event extends BaseOption {
     phoneNumbers?: string [];
 };
 
-export type Option = Place | Excursion | Meetup | Event;
+export interface Meetup extends BaseOption {
+    category: '3';
+    dates: Date [];
+    location: string;
+    phoneNumbers: string [];
+};
 
+export interface Excursion extends BaseOption {
+    category: '4';
+    departures: {
+        date: Date;
+        location: string;
+    } [];
+    destination: string;
+    phoneNumbers: string [];
+};
+
+export type Option = Place | Excursion | Meetup | Event;
 
 export type FilterOptionsParams = {
     lang: Lang;
@@ -94,7 +93,7 @@ export type GetOptionParams = {
 
 export type GetOptionReturn = {
     success: true;
-    option: Option;
+    option: null | Option;
 } | {
     success: false;
     errors: {
@@ -107,14 +106,14 @@ export function isPlace ( props: any ): props is Place {
     return props?.category === '1';
 };
 
-export function isExcursion ( props: any ): props is Excursion {
-    return props?.category === '4';
+export function isEvent ( props: any ): props is Event {
+    return props?.category === '2';
 };
 
 export function isMeetup ( props: any ): props is Meetup {
     return props?.category === '3';
 };
 
-export function isEvent ( props: any ): props is Event {
-    return props?.category === '2';
+export function isExcursion ( props: any ): props is Excursion {
+    return props?.category === '4';
 };

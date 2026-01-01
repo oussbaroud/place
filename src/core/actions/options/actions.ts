@@ -16,6 +16,9 @@ import { connectDatabase } from '@/core/config/database/actions';
 import { Option } from './models';
 import { getCache, storeCache } from '@/core/config/cache/actions';
 
+/// Modules
+import mongoose from 'mongoose';
+
 // Functions
 function filterOptions ( params: FilterOptionsParams ) {
     // Variables
@@ -164,6 +167,10 @@ export async function getOption ( { lang, id }: GetOptionParams ): Promise< GetO
 
     // Try
     try {
+        // If id not valid
+        if ( !mongoose.Types.ObjectId.isValid( id ) )
+        return { success: true, option: null };
+
         // Get database
         const option = await Option.findById( id ).lean();
 
