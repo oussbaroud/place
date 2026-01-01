@@ -1,8 +1,8 @@
 Tasks
-    Dev
+    Dev        
         - Rename core to lib
-        - Create components for option
         - Add type at the end of types
+        - Create components for option
 
         - Add lists
         - Add list creation
@@ -10,11 +10,11 @@ Tasks
         - Add request option update
 
     Content
-        - Add 100 options ( 1 added ) before 15/1/2026
+        - Add 100 options ( 6 added ) before 15/1/2026
 
     Marketing
         - Create content on social media
-        - Grow to 100 visites/day( 10k social media views )
+        - Grow to 100 visites/day( 10k social media views/day )
 
 Notes
     Content
