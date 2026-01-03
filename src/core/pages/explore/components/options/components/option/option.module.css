@@ -25,6 +25,11 @@
     border: 1px solid var( --color-3 );
 }
 
+.section1 h2 {
+    padding-inline-start: 15px;
+    border-inline-start: 1px solid #000;
+}
+
 .section1 h2,
 .row span:last-child {
     overflow: hidden;
