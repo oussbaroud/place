@@ -45,11 +45,11 @@ h3{
   font-size: 20px;
 }
 
-:lang( ar ):is( h1, h2, h3, button ) {
+:lang( ar ) :is( h1, h2, h3, button ) {
   font-weight: 500;
 }
 
-:is( :lang( en ), :lang( fr ) ):is( h1, h2, h3, button ) {
+:is( :lang( en ), :lang( fr ) ) :is( h1, h2, h3, button ) {
   font-weight: 400;
 }
 
