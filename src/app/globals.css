@@ -110,8 +110,11 @@ Scrollbar
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: rgba( 0, 0, 0, 0.2 ); /* semi-transparent thumb */
+  background: rgba( 0, 0, 0, 0.2 );
   border-radius: 2px;
+}
+body::-webkit-scrollbar-thumb {
+  background: rgb( 0, 59, 149, 0.4 );
 }
 
 ::-webkit-scrollbar-button {

@@ -25,7 +25,9 @@ export default function Section ( props: SectionProps ) {
                         }
                         {
                             'text' in props &&
-                            <span>{ props.text || '' }</span>
+                            <span
+                                className={ styles.text }
+                            >{ props.text || '' }</span>
                         }
                         {
                             'values' in props &&
@@ -43,9 +45,14 @@ export default function Section ( props: SectionProps ) {
                         }
                         {
                             'location' in props && props.location &&
-                            <Map
-                                url={ props.location }
-                            />
+                            <div
+                                className={ styles.map }
+
+                            >
+                                <Map
+                                    url={ props.location }
+                                />
+                            </div>
                         }
                     </>                        
                 )
@@ -89,9 +96,14 @@ export default function Section ( props: SectionProps ) {
                         }</div>
                         {
                             props.location &&
-                            <Map
-                                url={ props.location }
-                            />
+                            <div
+                                className={ styles.map }
+
+                            >
+                                <Map
+                                    url={ props.location }
+                                />
+                            </div>
                         }    
                     </>
                 )

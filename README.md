@@ -1,5 +1,6 @@
 Tasks
-    Dev        
+    Dev  
+        - Add meta data to option page      
         - Rename core to lib
         - Add type at the end of types
         - Create components for option

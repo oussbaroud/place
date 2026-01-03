@@ -32,8 +32,8 @@
 
 .columnSection .item {
     display: grid;
-    grid-template-columns: 85px 1fr;
-    column-gap: 10px;
+    grid-template-columns: 100px 1fr;
+    column-gap: 15px;
 }
 
 .columnSection .item > :first-child {
@@ -45,12 +45,31 @@
 }
 
 .label,
+.rowSection .text,
+.rowSection .values,
+.map {
+    padding-inline-start: 15px;
+}
+
+.label,
 .rowSection .value {
     white-space: nowrap;
 }
 
 .label {
+    border-inline-start: 1px solid #ddd;
     color: #777;
+}
+
+.rowSection .text,
+.rowSection .values,
+.map {
+    border-inline-start: 1px solid #777;
+}
+
+.columnSection .label {
+    border-inline-start: 1px solid #ddd;
+    border-inline-end: 1px solid #777;
 }
 
 .table {
