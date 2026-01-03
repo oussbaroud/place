@@ -27,7 +27,8 @@ Fonts
   line-height: 1.5;
 }
 
-:is( :lang( en ), :lang( fr ) ) {
+:lang( en ),
+:lang( fr ) {
   font-family: var( --font-latin );
   line-height: 1.4;
 }
@@ -44,11 +45,11 @@ h3{
   font-size: 20px;
 }
 
-:is( h1, h2, h3, button ):lang( ar ) {
+:lang( ar ):is( h1, h2, h3, button ) {
   font-weight: 500;
 }
 
-:is( h1, h2, h3, button ):is( :lang( en ), :lang( fr ) ) {
+:is( :lang( en ), :lang( fr ) ):is( h1, h2, h3, button ) {
   font-weight: 400;
 }
 

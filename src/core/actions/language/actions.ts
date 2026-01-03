@@ -1,5 +1,8 @@
 'use server'
 
+export const dynamic = 'force-dynamic'
+export const runtime = 'nodejs'
+
 // Import
 /// Types
 import { Lang } from '@/core/types';
