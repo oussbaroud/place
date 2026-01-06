@@ -60,8 +60,8 @@
 }
 .row span:first-child {
     padding-inline-start: 15px;
-    border-inline-start: 1px solid var( --color-3 );
-    border-inline-end: 1px solid var( --color-3 );
+    border-inline-start: 1px solid #bbb;
+    border-inline-end: 1px solid #bbb;
     color: #777;
 }
 .row span:last-child:lang( ar ) {

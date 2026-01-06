@@ -57,7 +57,7 @@
 }
 
 .label {
-    border-inline-start: 1px solid #ddd;
+    border-inline-start: 1px solid #bbb;
     color: #777;
 }
 
@@ -68,7 +68,7 @@
 }
 
 .columnSection .label {
-    border-inline-start: 1px solid #ddd;
+    border-inline-start: 1px solid #bbb;
     border-inline-end: 1px solid #777;
 }
 

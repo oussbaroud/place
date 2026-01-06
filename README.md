@@ -1,6 +1,6 @@
 Tasks
     Dev  
-        - Add meta data to option page      
+        - Update label border color to #bbb
         - Rename core to lib
         - Add type at the end of types
         - Create components for option
