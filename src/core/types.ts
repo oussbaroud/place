@@ -10,7 +10,6 @@ export type DispatchSetState< T > = Dispatch< SetStateAction < T > >;
 export type PathSetState< T > = ( ( updater: ( state: T ) => T ) => void );
 export type PathSetRef< T > = ( ( updater: ( state: T ) => T ) => void );
 
-
 export type ZodSafeParseReturn< Input = unknown, Output = unknown > =
 | { success: true; data: Output }
 | { success: false; error: ZodError< Input > };
@@ -24,6 +23,8 @@ export type Errors = { path: Path; message: string; } [];
 export type DivRef = undefined | RefObject< null | HTMLDivElement >;
 export type DivsRef = RefObject< null | HTMLDivElement > [];
 
+
+export type GenerateMetadataParams = { params: Promise< { id: string } >; };
 export type GetDictionaryParams = { lang: Lang; new?: boolean; index?: number; };
 export type GetCrossDictionaryParams = { lang: { user: Lang; input: Lang; }; new?: boolean; index?: number; };
 export type GetPatternParams = { lang: Lang; };

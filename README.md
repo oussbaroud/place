@@ -11,7 +11,7 @@ Tasks
         - Add request option update
 
     Content
-        - Add 100 options ( 6 added ) before 15/1/2026
+        - Add 100 options ( 10 added ) before 15/1/2026
 
     Marketing
         - Create content on social media

@@ -31,6 +31,7 @@ export async function connectCache ( { lang }: ConnectCacheParams ): Promise< Co
     } );
 
     await client.connect();
+    
     return { success: true, client };
   
   /// Catch
