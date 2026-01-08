@@ -1,6 +1,7 @@
 Tasks
     Dev  
-        - Update label border color to #bbb
+        - Update Dictionary
+        
         - Rename core to lib
         - Add type at the end of types
         - Create components for option
